@@ -1,0 +1,19 @@
+[project]
+name = "rostelecom-key-rt-ru"
+version = "0.1.0"
+description = "Rostelecom key parser"
+authors = [
+    {name = "TugovRoman@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "playwright (>=1.58.0,<2.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "rostelecom_key"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
