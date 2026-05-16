@@ -7,7 +7,7 @@ from playwright.sync_api import sync_playwright
 STATE_DIR = "states"
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=True)
+    browser = p.chromium.launch(headless=False)
 
     for file in os.listdir(STATE_DIR):
         if not file.endswith(".json"):
@@ -31,8 +31,10 @@ with sync_playwright() as p:
         locator.wait_for()
 
         address = locator.inner_text()
-      
-        print(f"{file} {address} Код: {code}")
+
+        phone = file.replace(".json", "")
+
+        print(f"+{phone} {address} Код: {code}")
 
         # input(f"Залогинься и нажми Enter...")
 
