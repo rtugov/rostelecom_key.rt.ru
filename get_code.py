@@ -39,9 +39,9 @@ with sync_playwright() as p:
         if args.new_code:
             page.goto("https://key.rt.ru/main/pwa/dashboard")
             expect(page.get_by_text("Moй дом")).to_be_visible(timeout=300_000)
-            input(f"Залогинься и нажми Enter...")
+            # input(f"Залогинься и нажми Enter...")
 
-            # Wait for it to disappear
+            # Wait for it
             page.wait_for_timeout(3000)
             # Look for any existing code's delete button
             delete_buttons = page.locator('button svg path[fill="#70F"]').count()
@@ -55,7 +55,7 @@ with sync_playwright() as p:
                 # Wait for popup
                 page.wait_for_selector('text=Вы действительно хотите удалить временный код?')
 
-                # Wait for it to disappear
+                # Wait for it 
                 page.wait_for_timeout(3000)
                 
                 # Confirm deletion
