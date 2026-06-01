@@ -30,6 +30,9 @@ with sync_playwright() as p:
     for file in state_files:
         if not file.endswith(".json"):
             continue
+
+        phone = file.replace(".json", "")
+
         try:
             state_path = os.path.join(STATE_DIR, file)
 
@@ -85,8 +88,6 @@ with sync_playwright() as p:
             locator.wait_for()
 
             address = locator.inner_text()
-
-            phone = file.replace(".json", "")
 
             print(f"+{phone} {address} Код: {code}")
 
