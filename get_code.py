@@ -70,7 +70,7 @@ with sync_playwright() as p:
                     page.reload()
                 # input(f"Залогинься и нажми Enter...")
                 # Now create new code
-                page.click('button:has-text("Создать код для домофонов")')
+                page.click('button:has-text("Создать код")')
                 # print("Created new code")
                 # Refresh to see updated list
                 page.wait_for_timeout(3000)
